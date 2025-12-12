@@ -2,15 +2,14 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Equipamentos - Nemesis</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Inventário - Nemesis</title>
+  <link rel="stylesheet" href="style.css?v=3">
 </head>
 <body>
 
-  <!-- MENU TOPO -->
+  <!-- MENU TOPO (mantém igual) -->
   <header class="topbar">
     <div class="logo">NEMESIS</div>
-
     <nav class="menu">
       <a href="index.html">Home</a>
       <a href="equipamentos.html">Equipamentos</a>
@@ -20,20 +19,31 @@
     </nav>
   </header>
 
-  <main class="equip-page">
-    <h1>Equipamentos</h1>
+  <!-- INVENTÁRIO -->
+  <main class="inventory-page">
 
-    <h2>Armas</h2>
-    <div class="grid">
-      <div class="item lendario" data-name="Espada Lendária"></div>
-      <div class="item comum" data-name="Espada Comum"></div>
+    <div class="inventory">
+
+      <!-- COLUNA ESQUERDA -->
+      <div class="inv-col">
+        <div class="slot" data-name="Weapon"></div>
+        <div class="slot" data-name="Shield"></div>
+        <div class="slot" data-name="Helmet"></div>
+        <div class="slot" data-name="Armor"></div>
+        <div class="slot" data-name="Boots"></div>
+      </div>
+
+      <!-- COLUNA DIREITA -->
+      <div class="inv-col">
+        <div class="slot" data-name="Ring"></div>
+        <div class="slot" data-name="Ring"></div>
+        <div class="slot" data-name="Amulet"></div>
+        <div class="slot" data-name="Gloves"></div>
+        <div class="slot" data-name="Belt"></div>
+      </div>
+
     </div>
 
-    <h2>Anéis</h2>
-    <div class="grid">
-      <div class="item raro" data-name="Anel Raro"></div>
-      <div class="item comum" data-name="Anel Comum"></div>
-    </div>
   </main>
 
 </body>
