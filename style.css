@@ -72,6 +72,15 @@ body {
   letter-spacing: 4px;
 }
 
+.category {
+  margin: 40px 0;
+}
+
+.category h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(4, 140px);
@@ -88,6 +97,13 @@ body {
   background-position: center;
   position: relative;
   transition: 0.3s;
+  filter: brightness(0.8);
+}
+
+.item:hover {
+  transform: scale(1.1);
+  filter: brightness(1);
+  border-color: #fff;
 }
 
 .item::after {
@@ -102,13 +118,20 @@ body {
   transition: 0.3s;
 }
 
-.item:hover {
-  transform: scale(1.15);
-  border-color: #fff;
-}
-
 .item:hover::after {
   opacity: 1;
+}
+
+.item[data-rarity="Lendário"] {
+  box-shadow: 0 0 15px #ff0;
+}
+
+.item[data-rarity="Raro"] {
+  box-shadow: 0 0 10px #0f0;
+}
+
+.item[data-rarity="Comum"] {
+  box-shadow: 0 0 5px #aaa;
 }
 
 /* IMAGENS */
@@ -120,17 +143,22 @@ body {
   background-image: url("https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=400&q=80");
 }
 
-.armadura {
-  background-image: url("https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=400&q=80");
-}
-
-.acessorio {
-  background-image: url("https://images.unsplash.com/photo-1624365168919-0d03c57c9f1c?auto=format&fit=crop&w=400&q=80");
-}
-
 .voltar {
   display: inline-block;
   margin: 50px 0;
   color: #aaa;
   text-decoration: none;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 140px);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
 }
