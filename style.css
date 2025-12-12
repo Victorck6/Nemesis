@@ -32,7 +32,7 @@
   color: #2b1d00;
 }
 
-/* ===== HOME (BANNER NEMESIS) ===== */
+/* ===== HOME / BANNER ===== */
 .hero {
   height: 100vh;
   background: url("banner-nemesis.png.png") center top no-repeat;
@@ -40,18 +40,19 @@
   position: relative;
 }
 
-/* ESCURECE PRA TEXTO FICAR LEGÍVEL */
+/* OVERLAY LEVE (não rouba destaque da imagem) */
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    rgba(0,0,0,0.55),
-    rgba(0,0,0,0.75)
+  background: radial-gradient(
+    circle at center,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.55)
   );
   pointer-events: none;
 }
 
-/* CONTEÚDO CENTRAL DA HOME */
+/* CONTEÚDO CENTRAL */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -61,25 +62,45 @@
   justify-content: center;
   align-items: center;
   text-align: center;
+
+  background: rgba(0,0,0,0.45);
+  padding: 32px 44px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+}
+
+/* TÍTULO */
+.hero-content h1 {
   color: #fff;
+  letter-spacing: 6px;
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+/* TEXTO */
+.hero-content p {
+  color: #ddd;
+  margin-bottom: 22px;
+  line-height: 1.5;
 }
 
 /* BOTÃO ENTRAR */
 .hero-btn {
-  position: relative;
-  z-index: 3;
-  cursor: pointer;
-  padding: 10px 20px;
-  background-color: #d6b97c;
-  border: none;
-  color: #2b1d00;
-  font-size: 16px;
-  font-weight: bold;
+  display: inline-block;
+  padding: 12px 36px;
+  border: 1px solid #d6b97c;
+  background: transparent;
+  color: #d6b97c;
+  text-decoration: none;
+  letter-spacing: 2px;
   transition: 0.3s;
 }
 
 .hero-btn:hover {
-  background-color: #b8924a;
+  background: #d6b97c;
+  color: #2b1d00;
+  box-shadow: 0 0 15px rgba(214,185,124,0.6);
 }
 
 /* ===== INVENTÁRIO ===== */
@@ -114,7 +135,7 @@
   transition: 0.2s;
 }
 
-/* ÍCONE SIMPLES (placeholder) */
+/* ÍCONE PLACEHOLDER */
 .slot::before {
   content: "";
   position: absolute;
@@ -123,7 +144,7 @@
   opacity: 0.6;
 }
 
-/* HOVER */
+/* HOVER SLOT */
 .slot:hover {
   border-color: #fff;
 }
