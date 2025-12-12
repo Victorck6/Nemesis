@@ -5,27 +5,36 @@
   <title>Equipamentos - Nemesis</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="equip">
+<body>
 
-  <h1 class="equip-title">Equipamentos</h1>
+  <!-- MENU TOPO -->
+  <header class="topbar">
+    <div class="logo">NEMESIS</div>
 
-  <div class="category">
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="equipamentos.html">Equipamentos</a>
+      <a href="#">Download</a>
+      <a href="#">Ranking</a>
+      <a href="#">Discord</a>
+    </nav>
+  </header>
+
+  <main class="equip-page">
+    <h1>Equipamentos</h1>
+
     <h2>Armas</h2>
     <div class="grid">
-      <a class="item arma" href="item.html?id=arma1" data-name="Espada Lendária" data-rarity="Lendário"></a>
-      <a class="item arma" href="item.html?id=arma2" data-name="Espada Comum" data-rarity="Comum"></a>
+      <div class="item lendario" data-name="Espada Lendária"></div>
+      <div class="item comum" data-name="Espada Comum"></div>
     </div>
-  </div>
 
-  <div class="category">
     <h2>Anéis</h2>
     <div class="grid">
-      <a class="item anel" href="item.html?id=anel1" data-name="Anel do Poder" data-rarity="Raro"></a>
-      <a class="item anel" href="item.html?id=anel2" data-name="Anel Comum" data-rarity="Comum"></a>
+      <div class="item raro" data-name="Anel Raro"></div>
+      <div class="item comum" data-name="Anel Comum"></div>
     </div>
-  </div>
-
-  <a href="index.html" class="voltar">Voltar</a>
+  </main>
 
 </body>
 </html>
