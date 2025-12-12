@@ -1,37 +1,43 @@
 * {
   box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #1a1a1a, #000);
   color: #fff;
-  font-family: Arial, sans-serif;
-  text-align: center;
 }
 
 /* HOME */
 .home {
+  height: 100vh;
+  background: url("https://images.unsplash.com/photo-1610878180933-123728745d22?auto=format&fit=crop&w=1400&q=80")
+    center/cover no-repeat;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
-.container {
-  background: rgba(0,0,0,0.6);
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.home-box {
+  position: relative;
+  text-align: center;
   padding: 40px;
-  border: 1px solid #444;
-  box-shadow: 0 0 20px #000;
+  border: 1px solid #555;
+  background: rgba(0,0,0,0.6);
 }
 
-.title {
-  font-size: 48px;
-  letter-spacing: 4px;
+.home-box h1 {
+  font-size: 52px;
+  letter-spacing: 6px;
 }
 
-.subtitle {
-  margin-top: 10px;
+.info {
   color: #ccc;
 }
 
@@ -41,50 +47,90 @@ body {
   color: #aaa;
 }
 
-.btn {
-  display: inline-block;
-  padding: 12px 30px;
-  border: 1px solid #777;
+.enter-btn {
+  padding: 14px 40px;
+  border: 1px solid #aaa;
   color: #fff;
   text-decoration: none;
   transition: 0.3s;
 }
 
-.btn:hover {
+.enter-btn:hover {
   background: #fff;
   color: #000;
 }
 
 /* EQUIPAMENTOS */
+.equip {
+  background: radial-gradient(circle at top, #222, #000);
+  min-height: 100vh;
+  text-align: center;
+}
+
+.equip-title {
+  padding-top: 30px;
+  letter-spacing: 4px;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  gap: 20px;
+  grid-template-columns: repeat(4, 140px);
+  gap: 30px;
   justify-content: center;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
-.card {
-  width: 100px;
-  height: 100px;
-  background: #111;
+.item {
+  width: 140px;
+  height: 140px;
   border: 2px solid #444;
-  font-size: 36px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: 0.2s;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: 0.3s;
 }
 
-.card:hover {
+.item::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  color: #ccc;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.item:hover {
+  transform: scale(1.15);
   border-color: #fff;
-  transform: scale(1.1);
+}
+
+.item:hover::after {
+  opacity: 1;
+}
+
+/* IMAGENS */
+.arma {
+  background-image: url("https://images.unsplash.com/photo-1604079628040-94301bb21b91?auto=format&fit=crop&w=400&q=80");
+}
+
+.anel {
+  background-image: url("https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb?auto=format&fit=crop&w=400&q=80");
+}
+
+.armadura {
+  background-image: url("https://images.unsplash.com/photo-1599940824399-b87987ceb72a?auto=format&fit=crop&w=400&q=80");
+}
+
+.acessorio {
+  background-image: url("https://images.unsplash.com/photo-1624365168919-0d03c57c9f1c?auto=format&fit=crop&w=400&q=80");
 }
 
 .voltar {
   display: inline-block;
-  margin-top: 40px;
+  margin: 50px 0;
   color: #aaa;
   text-decoration: none;
 }
