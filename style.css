@@ -96,6 +96,23 @@
   transition: 0.2s;
   box-shadow: 0 0 10px #000;
 }
+/* ===== HOME (BANNER NEMESIS) ===== */
+.hero {
+  height: 100vh;
+  background: url("banner-nemesis.png.png") center top no-repeat;
+  background-size: cover;
+  position: relative;
+}
+
+/* ESCURECE PRA TEXTO FICAR LEGÍVEL */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.75)
+  );
+}
 
 .slot:hover::after {
   opacity: 1;
