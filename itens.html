@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Itens - Nemesis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="logo">NEMESIS</div>
+  <nav class="menu">
+    <a href="equipamentos.html">Voltar</a>
+  </nav>
+</header>
+
+<main class="items-page">
+  <div class="items-container">
+
+    <div class="items-header">
+      <div>Ícone</div>
+      <div>Nome</div>
+      <div>Tipo</div>
+      <div>Raridade</div>
+      <div>Level</div>
+      <div>Descrição</div>
+    </div>
+
+    <div id="items"></div>
+
+  </div>
+</main>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const slot = params.get("slot");
+
+const items = [
+  { name: "Anel do Fogo", slot: "anel1", rarity: "Raro", level: 10, desc: "Aumenta dano de fogo" },
+  { name: "Anel Sombrio", slot: "anel2", rarity: "Épico", level: 25, desc: "Aumenta crítico" },
+  { name: "Espada Negra", slot: "arma", rarity: "Comum", level: 5, desc: "Espada básica" }
+];
+
+const container = document.getElementById("items");
+
+items
+  .filter(i => i.slot === slot)
+  .forEach(item => {
+    container.innerHTML += `
+      <div class="item-row">
+        <div class="item-icon"></div>
+        <div>${item.name}</div>
+        <div>${item.slot}</div>
+        <div>${item.rarity}</div>
+        <div>${item.level}</div>
+        <div>
+          ${item.desc}
+          <br><br>
+          <button class="equip-btn">Equipar</button>
+        </div>
+      </div>
+    `;
+  });
+</script>
+
+</body>
+</html>
