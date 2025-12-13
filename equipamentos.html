@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <title>Equipamentos - Nemesis</title>
-  <link rel="stylesheet" href="style.css?v=99">
+  <link rel="stylesheet" href="style.css?v=100">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
@@ -12,9 +13,6 @@
   <nav class="menu">
     <a href="index.html">Home</a>
     <a href="equipamentos.html">Equipamentos</a>
-    <a href="#">Download</a>
-    <a href="#">Ranking</a>
-    <a href="#">Discord</a>
   </nav>
 </header>
 
@@ -22,19 +20,19 @@
   <div class="inventory">
 
     <div class="inv-col">
-      <div class="slot" data-name="Arma"></div>
-      <div class="slot" data-name="Chapéu"></div>
-      <div class="slot" data-name="Calça"></div>
-      <div class="slot" data-name="Veste"></div>
-      <div class="slot" data-name="Anel 1"></div>
+      <div class="slot" data-item="arma" data-name="Arma" onclick="openItem(this)"></div>
+      <div class="slot" data-item="chapeu" data-name="Chapéu" onclick="openItem(this)"></div>
+      <div class="slot" data-item="calca" data-name="Calça" onclick="openItem(this)"></div>
+      <div class="slot" data-item="veste" data-name="Veste" onclick="openItem(this)"></div>
+      <div class="slot" data-item="anel1" data-name="Anel 1" onclick="openItem(this)"></div>
     </div>
 
     <div class="inv-col">
-      <div class="slot" data-name="Camisa"></div>
-      <div class="slot" data-name="Máscara"></div>
-      <div class="slot" data-name="Sapato"></div>
-      <div class="slot" data-name="Acessório"></div>
-      <div class="slot" data-name="Anel 2"></div>
+      <div class="slot" data-item="camisa" data-name="Camisa" onclick="openItem(this)"></div>
+      <div class="slot" data-item="mascara" data-name="Máscara" onclick="openItem(this)"></div>
+      <div class="slot" data-item="sapato" data-name="Sapato" onclick="openItem(this)"></div>
+      <div class="slot" data-item="acessorio" data-name="Acessório" onclick="openItem(this)"></div>
+      <div class="slot" data-item="anel2" data-name="Anel 2" onclick="openItem(this)"></div>
     </div>
 
   </div>
