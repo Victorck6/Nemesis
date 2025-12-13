@@ -87,3 +87,84 @@
 .hero-btn:hover {
   background: #d6b97c;
   color: #2b1d00;
+  box-shadow: 0 0 15px rgba(214,185,124,0.6);
+}
+
+/* ===== INVENTÁRIO (NEMESIS CORE) ===== */
+.inventory-page {
+  padding-top: 100px;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(214,185,124,0.08),
+      rgba(0,0,0,0.95) 60%
+    ),
+    #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Inventário central */
+.inventory {
+  display: flex;
+  gap: 80px;
+  position: relative;
+}
+
+/* Colunas */
+.inv-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* SLOT */
+.slot {
+  width: 64px;
+  height: 64px;
+  background: rgba(30,30,30,0.9);
+  border: 1px solid #555;
+  position: relative;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+/* Ícone interno fake */
+.slot::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid #777;
+  opacity: 0.4;
+}
+
+/* Hover */
+.slot:hover {
+  border-color: #d6b97c;
+  box-shadow: 0 0 10px rgba(214,185,124,0.4);
+}
+
+/* Tooltip */
+.slot::after {
+  content: attr(data-name);
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #000;
+  color: #fff;
+  padding: 6px 10px;
+  border: 1px solid #777;
+  font-size: 13px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  box-shadow: 0 0 10px #000;
+}
+
+.slot:hover::after {
+  opacity: 1;
+}
