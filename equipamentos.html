@@ -9,42 +9,29 @@
 
 <header class="topbar">
   <div class="logo">NEMESIS</div>
-  <nav class="menu">
-    <a href="index.html">Home</a>
-  </nav>
 </header>
 
 <main class="inventory-page">
-
   <div class="inventory">
 
-    <!-- COLUNA ESQUERDA -->
     <div class="inv-col">
-      <div class="slot" data-name="Arma" onclick="openSlot('weapon')"></div>
-      <div class="slot" data-name="Chapéu" onclick="openSlot('hat')"></div>
-      <div class="slot" data-name="Calça" onclick="openSlot('pants')"></div>
-      <div class="slot" data-name="Veste" onclick="openSlot('vest')"></div>
-      <div class="slot" data-name="Anel 1" onclick="openSlot('ring1')"></div>
+      <a class="slot" href="itens.html?slot=anel1" data-name="Anel 1"></a>
+      <a class="slot" data-name="Vazio"></a>
+      <a class="slot" data-name="Vazio"></a>
+      <a class="slot" data-name="Vazio"></a>
+      <a class="slot" data-name="Vazio"></a>
     </div>
 
-    <!-- COLUNA DIREITA -->
     <div class="inv-col">
-      <div class="slot" data-name="Camisa" onclick="openSlot('shirt')"></div>
-      <div class="slot" data-name="Máscara" onclick="openSlot('mask')"></div>
-      <div class="slot" data-name="Sapato" onclick="openSlot('shoes')"></div>
-      <div class="slot" data-name="Acessório" onclick="openSlot('accessory')"></div>
-      <div class="slot" data-name="Anel 2" onclick="openSlot('ring2')"></div>
+      <a class="slot" href="itens.html?slot=anel2" data-name="Anel 2"></a>
+      <a class="slot" data-name="Vazio"></a>
+      <a class="slot" data-name="Vazio"></a>
+      <a class="slot" data-name="Vazio"></a>
+      <a class="slot" data-name="Vazio"></a>
     </div>
 
   </div>
-
 </main>
-
-<script>
-function openSlot(slot) {
-  window.location.href = "itens.html?slot=" + slot;
-}
-</script>
 
 </body>
 </html>
