@@ -1,45 +1,87 @@
-const items = [
+// ===============================
+// BANCO DE ITENS
+// ===============================
+const ITEMS = [
   {
-    slot: "ring1",
-    name: "Amethyst Stargazer Ring",
-    type: "Anel",
-    rarity: "Incomum",
+    id: "amethyst_stargazer_ring",
+    nome: "Amethyst Stargazer Ring",
+    tipo: "Anel",
+    slots: ["anel1", "anel2"],
+    raridade: "Raro",
     level: 55,
-    description:
-      "+6 Fortitude\n\nA gema deste anel caiu do céu noturno gerações atrás, descoberta incrustada na pedra de um santuário remoto. Um brilho silencioso responde ao chakra.",
-    image: "anel-amethyst.png"
-  },
-
-  {
-    slot: "weapon",
-    name: "Espada Quebrada",
-    type: "Arma",
-    rarity: "Comum",
-    level: 3,
-    description: "Uma espada antiga, gasta pelo tempo.",
-    image: "placeholder.png"
+    status: "+7 Fortitude",
+    mob: "Samurai",
+    drop: "Below 1%",
+    descricao:
+      "The gem set into this ring is said to have fallen from the night sky generations ago, discovered embedded within the stone of a remote mountain shrine. Unlike ordinary crystals, it does not shine with reflected light, but with a quiet glow that responds to chakra.",
+    imagem: "assets/items/rings/amethyst-stargazer-ring.png",
+    equipadoEm: null
   }
 ];
 
+// ===============================
+// LER SLOT DA URL
+// ===============================
 const params = new URLSearchParams(window.location.search);
-const slotAtual = params.get("slot");
-const list = document.getElementById("items-list");
+const SLOT_ATUAL = params.get("slot");
 
-const filtrados = items.filter(item => item.slot === slotAtual);
+// ===============================
+// RENDER ITENS
+// ===============================
+function renderItens() {
+  const container = document.getElementById("lista-itens");
+  if (!container) return;
 
-if (filtrados.length === 0) {
-  list.innerHTML = "<div class='items-empty'>Nenhum item disponível para este slot</div>";
+  container.innerHTML = "";
+
+  const itensFiltrados = ITEMS.filter(item =>
+    item.slots.includes(SLOT_ATUAL)
+  );
+
+  if (itensFiltrados.length === 0) {
+    container.innerHTML = "<p class='vazio'>Nenhum item disponível.</p>";
+    return;
+  }
+
+  itensFiltrados.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "item-card";
+
+    div.innerHTML = `
+      <img src="${item.imagem}">
+      <div class="item-info">
+        <h3>${item.nome}</h3>
+        <p><b>Tipo:</b> ${item.tipo}</p>
+        <p><b>Raridade:</b> ${item.raridade}</p>
+        <p><b>Level:</b> Lv. ${item.level}</p>
+        <p><b>Status:</b> ${item.status}</p>
+        <p><b>Mob:</b> ${item.mob}</p>
+        <p><b>Drop:</b> ${item.drop}</p>
+        <p class="desc">${item.descricao}</p>
+        <button onclick="equipar('${item.id}')">
+          ${item.equipadoEm === SLOT_ATUAL ? "Desequipar" : "Equipar"}
+        </button>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
 }
 
-filtrados.forEach(item => {
-  list.innerHTML += `
-    <div class="item-row">
-      <div><img src="${item.image}" class="item-icon"></div>
-      <div>${item.name}</div>
-      <div>${item.type}</div>
-      <div class="rarity">${item.rarity}</div>
-      <div>Lv ${item.level}</div>
-      <div class="desc">${item.description.replace(/\n/g,"<br>")}</div>
-    </div>
-  `;
-});
+// ===============================
+// EQUIPAR / DESEQUIPAR
+// ===============================
+function equipar(id) {
+  const item = ITEMS.find(i => i.id === id);
+  if (!item) return;
+
+  if (item.equipadoEm === SLOT_ATUAL) {
+    item.equipadoEm = null;
+  } else {
+    item.equipadoEm = SLOT_ATUAL;
+  }
+
+  renderItens();
+}
+
+renderItens();
