@@ -32,64 +32,11 @@
   color: #2b1d00;
 }
 
-/* ===== HOME ===== */
-.hero {
-  height: 100vh;
-  background: url("banner-nemesis.png.png") center center no-repeat;
-  background-size: cover;
-  position: relative;
-  padding-top: 60px;
-}
-
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0,0,0,0.25);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  height: calc(100vh - 60px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-align: center;
-}
-
-.hero-content h1 {
-  font-size: 52px;
-  letter-spacing: 6px;
-}
-
-.hero-content p {
-  margin-top: 10px;
-  line-height: 1.6;
-}
-
-.hero-btn {
-  margin-top: 25px;
-  padding: 12px 36px;
-  border: 1px solid #d6b97c;
-  color: #d6b97c;
-  text-decoration: none;
-  transition: 0.3s;
-}
-
-.hero-btn:hover {
-  background: #d6b97c;
-  color: #000;
-}
-
 /* ===== INVENTÁRIO ===== */
 .inventory-page {
   padding-top: 100px;
   min-height: 100vh;
-  background:
-    radial-gradient(circle at center, rgba(214,185,124,0.08), rgba(0,0,0,0.95) 65%),
-    #000;
+  background: radial-gradient(circle at center, #222, #000);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -106,6 +53,7 @@
   gap: 14px;
 }
 
+/* SLOT */
 .slot {
   width: 64px;
   height: 64px;
@@ -116,19 +64,12 @@
   transition: 0.25s;
 }
 
-.slot::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1px solid #777;
-  opacity: 0.4;
-}
-
 .slot:hover {
   border-color: #d6b97c;
-  box-shadow: 0 0 10px rgba(214,185,124,0.4);
+  box-shadow: 0 0 10px rgba(214,185,124,0.5);
 }
 
+/* TOOLTIP */
 .slot::after {
   content: attr(data-name);
   position: absolute;
@@ -149,53 +90,60 @@
 .slot:hover::after {
   opacity: 1;
 }
-/* ===== ITEM PAGE ===== */
-.item-page {
+
+/* ===== ITENS ===== */
+.items-page {
   padding-top: 100px;
   min-height: 100vh;
-  background: radial-gradient(circle, #111, #000);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.item-card {
-  background: rgba(0,0,0,0.7);
-  border: 1px solid #d6b97c;
-  padding: 40px;
-  width: 320px;
-  text-align: center;
+  background: radial-gradient(circle at center, #222, #000);
   color: #fff;
 }
 
-.item-card h1 {
-  margin-bottom: 10px;
+.items-container {
+  max-width: 900px;
+  margin: auto;
 }
 
-.item-type {
-  margin-bottom: 6px;
-}
-
-.item-rarity {
-  margin-bottom: 20px;
-}
-
-/* RARIDADES */
-.comum { color: #aaa; }
-.incomum { color: #4caf50; }
-.raro { color: #2196f3; }
-.épico { color: #9c27b0; }
-.lendário { color: #ff9800; }
-
-.item-card button {
-  padding: 10px 30px;
-  border: 1px solid #d6b97c;
-  background: none;
+.items-header {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px 120px 100px 1fr;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid #555;
   color: #d6b97c;
+  font-weight: bold;
   cursor: pointer;
 }
 
-.item-card button:hover {
+.item-row {
+  display: grid;
+  grid-template-columns: 60px 1fr 120px 120px 100px 1fr;
+  gap: 10px;
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  align-items: center;
+}
+
+.item-row:hover {
+  background: rgba(214,185,124,0.08);
+}
+
+.item-icon {
+  width: 48px;
+  height: 48px;
+  background: #333;
+  border: 1px solid #555;
+}
+
+.equip-btn {
+  background: none;
+  border: 1px solid #d6b97c;
+  color: #d6b97c;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.equip-btn:hover {
   background: #d6b97c;
   color: #000;
 }
