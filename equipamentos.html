@@ -7,47 +7,31 @@
 </head>
 <body>
 
+<!-- MENU -->
 <header class="topbar">
   <div class="logo">NEMESIS</div>
   <nav class="menu">
     <a href="index.html">Home</a>
     <a href="equipamentos.html">Equipamentos</a>
+    <a href="#">Download</a>
+    <a href="#">Ranking</a>
+    <a href="#">Discord</a>
   </nav>
 </header>
 
+<!-- INVENTÁRIO -->
 <main class="inventory-page">
 
   <div class="inventory">
 
     <!-- COLUNA ESQUERDA -->
-    <div class="inv-col">
-      <div class="slot"><span>Arma</span></div>
-      <div class="slot"><span>Chapéu</span></div>
-      <div class="slot"><span>Calça</span></div>
-      <div class="slot"><span>Veste</span></div>
+    <div class="I am thinking about the best possible answer to the last user query: "manda o equipamento todo". The user is Portuguese (Brazil). They want the entire equipment page code. They have had many issues with things disappearing; they want copy-paste solution. I already started to provide equipamentos.html but cut off accidentally. I must deliver full page with slots and links to itens.html filtered per slot. However they asked earlier that clicking Anel 1 or Anel 2 should show the item. But for now "manda o equipamento todo" suggests only equipment page, not scripts. But earlier they asked "manda tudo de tudo mesmo". Now specifically "manda o equipamento todo". I should provide equipamentos.html plus any required CSS additions? But they already have style.css from previous answer that includes items page styles. For equipment page styles earlier existed in style.css (inventory styles). I should include CSS for inventory if not present. To be safe, include only equipamentos.html and note it relies on existing style.css inventory styles. However to be robust, I could include minimal inline CSS? They prefer copy-paste. But adding inline CSS would conflict with style.css.
 
-      <!-- ANEL 1 -->
-      <a href="itens.html?slot=ring1" class="slot clickable">
-        <span>Anel 1</span>
-      </a>
-    </div>
+Given clarity, I'll provide equipamentos.html with slots as anchors linking to itens.html with query parameter slot=ring1, ring2, weapon, etc. That will not break even if itens.html ignores params. It will still open.
 
-    <!-- COLUNA DIREITA -->
-    <div class="inv-col">
-      <div class="slot"><span>Camisa</span></div>
-      <div class="slot"><span>Máscara</span></div>
-      <div class="slot"><span>Sapato</span></div>
-      <div class="slot"><span>Acessório</span></div>
+I should ensure names localized as they requested earlier: Arma, Chapéu, Calça, Veste, Anel 1; Camisa, Máscara, Sapato, Acessório, Anel 2.
 
-      <!-- ANEL 2 -->
-      <a href="itens.html?slot=ring2" class="slot clickable">
-        <span>Anel 2</span>
-      </a>
-    </div>
+Also tooltips show names via data-name attribute.
 
-  </div>
+Let's finish equipamentos.html fully.
 
-</main>
-
-</body>
-</html>
