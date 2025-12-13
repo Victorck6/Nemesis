@@ -1,47 +1,36 @@
-// BANCO DE ITENS
-const itens = [
+const params = new URLSearchParams(window.location.search);
+const slot = params.get("slot");
+
+const items = [
   {
-    slot: "ring1",
-    nome: "Amethyst Stargazer Ring",
-    tipo: "Anel",
-    raridade: "Raro",
+    slots: ["ring1", "ring2"],
+    icon: "assets/amethyst-ring.png",
+    name: "Amethyst Stargazer Ring",
+    type: "Anel",
+    rarity: "Raro",
     level: 55,
     mob: "Samurai",
-    drop: "Below 1%",
-    imagem: "images/amethyst-ring.png"
-  },
-  {
-    slot: "ring2",
-    nome: "Amethyst Stargazer Ring",
-    tipo: "Anel",
-    raridade: "Raro",
-    level: 55,
-    mob: "Samurai",
-    drop: "Below 1%",
-    imagem: "images/amethyst-ring.png"
+    drop: "Below 1%"
   }
 ];
 
-// PEGAR SLOT DA URL
-const params = new URLSearchParams(window.location.search);
-const slotSelecionado = params.get("slot");
+const list = document.getElementById("items-list");
 
-const container = document.getElementById("items-list");
+items.forEach(item => {
+  if (!item.slots.includes(slot)) return;
 
-// FILTRAR ITENS DO SLOT
-itens
-  .filter(item => item.slot === slotSelecionado)
-  .forEach(item => {
-    const div = document.createElement("div");
-    div.className = "item-row";
-    div.innerHTML = `
-      <img src="${item.imagem}" class="item-icon">
-      <span>${item.nome}</span>
-      <span>${item.tipo}</span>
-      <span class="rarity">${item.raridade}</span>
-      <span>Lv ${item.level}</span>
-      <span>${item.mob}</span>
-      <span>${item.drop}</span>
-    `;
-    container.appendChild(div);
-  });
+  const row = document.createElement("div");
+  row.className = "item-row";
+
+  row.innerHTML = `
+    <img src="${item.icon}">
+    <span>${item.name}</span>
+    <span>${item.type}</span>
+    <span class="rarity">${item.rarity}</span>
+    <span>Lv ${item.level}</span>
+    <span>${item.mob}</span>
+    <span>${item.drop}</span>
+  `;
+
+  list.appendChild(row);
+});
