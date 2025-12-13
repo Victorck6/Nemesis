@@ -32,12 +32,12 @@
   color: #2b1d00;
 }
 
-/* ===== INVENTÁRIO (NEMESIS CORE+) ===== */
+/* ===== INVENTÁRIO ===== */
 .inventory-page {
   padding-top: 100px;
   min-height: 100vh;
   background:
-    radial-gradient(circle at center, rgba(214,185,124,0.08), rgba(0,0,0,0.95) 60%),
+    radial-gradient(circle at center, rgba(214,185,124,0.08), rgba(0,0,0,0.95) 65%),
     #000;
   display: flex;
   justify-content: center;
@@ -46,73 +46,58 @@
 
 .inventory {
   display: flex;
-  gap: 90px;
+  gap: 80px;
 }
 
+/* COLUNAS */
 .inv-col {
   display: flex;
   flex-direction: column;
   gap: 14px;
 }
 
-/* ===== SLOT BASE ===== */
+/* SLOT BASE */
 .slot {
   width: 64px;
   height: 64px;
-  background: #141414;
-  border: 1px solid #444;
+  background: #1a1a1a;
+  border: 1px solid #555;
   position: relative;
   cursor: pointer;
   transition: 0.25s;
-  overflow: hidden;
 }
 
-/* IMAGEM DO ITEM */
-.slot img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  padding: 6px;
-  pointer-events: none;
+/* BORDA INTERNA */
+.slot::before {
+  content: "";
+  position: absolute;
+  inset: 6px;
+  border: 1px solid #777;
+  opacity: 0.4;
 }
 
-/* ===== RARIDADES ===== */
-.slot.common {
-  border-color: #666;
-}
-
-.slot.rare {
-  border-color: #3fa9f5;
-  box-shadow: 0 0 8px rgba(63,169,245,0.4);
-}
-
-.slot.legendary {
-  border-color: #d6b97c;
-  box-shadow: 0 0 12px rgba(214,185,124,0.6);
-}
-
-/* HOVER GERAL */
+/* HOVER */
 .slot:hover {
-  transform: scale(1.05);
+  border-color: #d6b97c;
+  box-shadow: 0 0 10px rgba(214,185,124,0.4);
 }
 
-/* ===== TOOLTIP ===== */
+/* TOOLTIP */
 .slot::after {
-  content: attr(data-name) " • " attr(data-rarity);
+  content: attr(data-name);
   position: absolute;
   left: 110%;
   top: 50%;
   transform: translateY(-50%);
   background: #000;
   color: #fff;
-  padding: 8px 12px;
+  padding: 6px 10px;
   border: 1px solid #777;
   font-size: 13px;
   white-space: nowrap;
   opacity: 0;
   pointer-events: none;
   transition: 0.2s;
-  box-shadow: 0 0 12px #000;
 }
 
 .slot:hover::after {
