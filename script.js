@@ -1,33 +1,45 @@
 const items = [
-  { nome: "Anel do Poder", raridade: "Raro", level: 10 },
-  { nome: "Anel Antigo", raridade: "Comum", level: 3 },
-  { nome: "Anel Sombrio", raridade: "Épico", level: 25 }
+  {
+    slot: "ring1",
+    name: "Amethyst Stargazer Ring",
+    type: "Anel",
+    rarity: "Incomum",
+    level: 55,
+    description:
+      "+6 Fortitude\n\nA gema deste anel caiu do céu noturno gerações atrás, descoberta incrustada na pedra de um santuário remoto. Um brilho silencioso responde ao chakra.",
+    image: "anel-amethyst.png"
+  },
+
+  {
+    slot: "weapon",
+    name: "Espada Quebrada",
+    type: "Arma",
+    rarity: "Comum",
+    level: 3,
+    description: "Uma espada antiga, gasta pelo tempo.",
+    image: "placeholder.png"
+  }
 ];
 
-const list = document.getElementById("itemsList");
+const params = new URLSearchParams(window.location.search);
+const slotAtual = params.get("slot");
+const list = document.getElementById("items-list");
 
-function render(data) {
-  list.innerHTML = "";
-  data.forEach(item => {
-    const div = document.createElement("div");
-    div.className = "item-row";
-    div.innerHTML = `
-      <span>${item.nome}</span>
-      <span>${item.raridade}</span>
-      <span>Lv ${item.level}</span>
-    `;
-    list.appendChild(div);
-  });
+const filtrados = items.filter(item => item.slot === slotAtual);
+
+if (filtrados.length === 0) {
+  list.innerHTML = "<div class='items-empty'>Nenhum item disponível para este slot</div>";
 }
 
-render(items);
-
-document.querySelectorAll(".items-header span").forEach(span => {
-  let asc = true;
-  span.addEventListener("click", () => {
-    const key = span.dataset.sort;
-    items.sort((a,b) => asc ? a[key] > b[key] ? 1 : -1 : a[key] < b[key] ? 1 : -1);
-    asc = !asc;
-    render(items);
-  });
+filtrados.forEach(item => {
+  list.innerHTML += `
+    <div class="item-row">
+      <div><img src="${item.image}" class="item-icon"></div>
+      <div>${item.name}</div>
+      <div>${item.type}</div>
+      <div class="rarity">${item.rarity}</div>
+      <div>Lv ${item.level}</div>
+      <div class="desc">${item.description.replace(/\n/g,"<br>")}</div>
+    </div>
+  `;
 });
