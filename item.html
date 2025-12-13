@@ -3,40 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title>Item - Nemesis</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=100">
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- MENU -->
-  <header class="topbar">
-    <div class="logo">NEMESIS</div>
-    <nav class="menu">
-      <a href="index.html">Home</a>
-      <a href="equipamentos.html">Equipamentos</a>
-      <a href="#">Download</a>
-      <a href="#">Ranking</a>
-      <a href="#">Discord</a>
-    </nav>
-  </header>
+<header class="topbar">
+  <div class="logo">NEMESIS</div>
+  <nav class="menu">
+    <a href="equipamentos.html">Voltar</a>
+  </nav>
+</header>
 
-  <!-- CONTEÚDO -->
-  <main class="inventory-page">
-    <div class="item-box">
-      <h1 id="itemNome">Item</h1>
-      <p class="item-desc">Aqui vai a descrição do item.</p>
+<main class="item-page">
 
-      <a href="equipamentos.html" class="hero-btn">Voltar</a>
-    </div>
-  </main>
+  <div class="item-card">
+    <h1 id="itemName">Item</h1>
+    <p class="item-type" id="itemType"></p>
+    <p class="item-rarity" id="itemRarity"></p>
 
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const nome = params.get("nome");
+    <button id="equipBtn" onclick="toggleEquip()">Equipar</button>
+  </div>
 
-    if (nome) {
-      document.getElementById("itemNome").innerText = nome;
-    }
-  </script>
+</main>
 
 </body>
 </html>
