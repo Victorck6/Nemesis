@@ -1,52 +1,33 @@
-const itemData = {
-  arma: { name: "Arma", type: "Arma", rarity: "Raro" },
-  chapeu: { name: "Chapéu", type: "Cabeça", rarity: "Comum" },
-  calca: { name: "Calça", type: "Pernas", rarity: "Incomum" },
-  veste: { name: "Veste", type: "Peitoral", rarity: "Raro" },
-  camisa: { name: "Camisa", type: "Torso", rarity: "Comum" },
-  mascara: { name: "Máscara", type: "Rosto", rarity: "Épico" },
-  sapato: { name: "Sapato", type: "Pés", rarity: "Incomum" },
-  acessorio: { name: "Acessório", type: "Extra", rarity: "Lendário" },
-  anel1: { name: "Anel 1", type: "Anel", rarity: "Raro" },
-  anel2: { name: "Anel 2", type: "Anel", rarity: "Raro" }
-};
+const items = [
+  { nome: "Anel do Poder", raridade: "Raro", level: 10 },
+  { nome: "Anel Antigo", raridade: "Comum", level: 3 },
+  { nome: "Anel Sombrio", raridade: "Épico", level: 25 }
+];
 
-function openItem(el) {
-  const id = el.dataset.item;
-  localStorage.setItem("currentItem", id);
-  window.location.href = "item.html";
+const list = document.getElementById("itemsList");
+
+function render(data) {
+  list.innerHTML = "";
+  data.forEach(item => {
+    const div = document.createElement("div");
+    div.className = "item-row";
+    div.innerHTML = `
+      <span>${item.nome}</span>
+      <span>${item.raridade}</span>
+      <span>Lv ${item.level}</span>
+    `;
+    list.appendChild(div);
+  });
 }
 
-function loadItem() {
-  const id = localStorage.getItem("currentItem");
-  if (!id) return;
+render(items);
 
-  const item = itemData[id];
-  document.getElementById("itemName").innerText = item.name;
-  document.getElementById("itemType").innerText = "Tipo: " + item.type;
-
-  const rarityEl = document.getElementById("itemRarity");
-  rarityEl.innerText = "Raridade: " + item.rarity;
-  rarityEl.className = "item-rarity " + item.rarity.toLowerCase();
-
-  updateEquipButton(id);
-}
-
-function toggleEquip() {
-  const id = localStorage.getItem("currentItem");
-  let equipped = JSON.parse(localStorage.getItem("equipped")) || {};
-
-  equipped[id] = !equipped[id];
-  localStorage.setItem("equipped", JSON.stringify(equipped));
-
-  updateEquipButton(id);
-}
-
-function updateEquipButton(id) {
-  const equipped = JSON.parse(localStorage.getItem("equipped")) || {};
-  const btn = document.getElementById("equipBtn");
-
-  btn.innerText = equipped[id] ? "Desequipar" : "Equipar";
-}
-
-document.addEventListener("DOMContentLoaded", loadItem);
+document.querySelectorAll(".items-header span").forEach(span => {
+  let asc = true;
+  span.addEventListener("click", () => {
+    const key = span.dataset.sort;
+    items.sort((a,b) => asc ? a[key] > b[key] ? 1 : -1 : a[key] < b[key] ? 1 : -1);
+    asc = !asc;
+    render(items);
+  });
+});
