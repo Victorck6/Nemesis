@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Item - Nemesis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- MENU -->
+  <header class="topbar">
+    <div class="logo">NEMESIS</div>
+    <nav class="menu">
+      <a href="index.html">Home</a>
+      <a href="equipamentos.html">Equipamentos</a>
+      <a href="#">Download</a>
+      <a href="#">Ranking</a>
+      <a href="#">Discord</a>
+    </nav>
+  </header>
+
+  <!-- CONTEÚDO -->
+  <main class="inventory-page">
+    <div class="item-box">
+      <h1 id="itemNome">Item</h1>
+      <p class="item-desc">Aqui vai a descrição do item.</p>
+
+      <a href="equipamentos.html" class="hero-btn">Voltar</a>
+    </div>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const nome = params.get("nome");
+
+    if (nome) {
+      document.getElementById("itemNome").innerText = nome;
+    }
+  </script>
+
+</body>
+</html>
