@@ -32,7 +32,58 @@
   color: #2b1d00;
 }
 
-/* ===== INVENTÁRIO / PÁGINAS ===== */
+/* ===== HOME ===== */
+.hero {
+  height: 100vh;
+  background: url("banner-nemesis.png.png") center center no-repeat;
+  background-size: cover;
+  position: relative;
+  padding-top: 60px;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 52px;
+  letter-spacing: 6px;
+}
+
+.hero-content p {
+  margin-top: 10px;
+  line-height: 1.6;
+}
+
+.hero-btn {
+  margin-top: 25px;
+  padding: 12px 36px;
+  border: 1px solid #d6b97c;
+  color: #d6b97c;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.hero-btn:hover {
+  background: #d6b97c;
+  color: #000;
+}
+
+/* ===== INVENTÁRIO ===== */
 .inventory-page {
   padding-top: 100px;
   min-height: 100vh;
@@ -44,7 +95,6 @@
   align-items: center;
 }
 
-/* INVENTÁRIO */
 .inventory {
   display: flex;
   gap: 80px;
@@ -56,7 +106,6 @@
   gap: 14px;
 }
 
-/* SLOT */
 .slot {
   width: 64px;
   height: 64px;
@@ -80,7 +129,6 @@
   box-shadow: 0 0 10px rgba(214,185,124,0.4);
 }
 
-/* TOOLTIP */
 .slot::after {
   content: attr(data-name);
   position: absolute;
@@ -100,38 +148,4 @@
 
 .slot:hover::after {
   opacity: 1;
-}
-
-/* ITEM PAGE */
-.item-box {
-  background: rgba(0,0,0,0.7);
-  border: 1px solid #d6b97c;
-  padding: 40px;
-  text-align: center;
-  color: #fff;
-}
-
-.item-box h1 {
-  letter-spacing: 4px;
-  margin-bottom: 10px;
-}
-
-.item-desc {
-  opacity: 0.8;
-  margin-bottom: 20px;
-}
-
-/* BOTÃO */
-.hero-btn {
-  display: inline-block;
-  padding: 10px 30px;
-  border: 1px solid #d6b97c;
-  color: #d6b97c;
-  text-decoration: none;
-  transition: 0.2s;
-}
-
-.hero-btn:hover {
-  background: #d6b97c;
-  color: #000;
 }
